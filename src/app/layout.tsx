@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 import { Sidebar } from "@/components/Sidebar";
 import { Header } from "@/components/Header";
+import { SimulationProvider } from "@/context/SimulationContext";
 
 export default function RootLayout({
   children,
@@ -30,13 +31,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex bg-gray-50`}
       >
-        <Sidebar />
-        <div className="flex-1 flex flex-col min-h-screen isolate overflow-hidden">
-          <Header />
-          <main className="flex-1 overflow-auto bg-gray-50/50 relative">
-            {children}
-          </main>
-        </div>
+        <SimulationProvider>
+          <Sidebar />
+          <div className="flex-1 flex flex-col min-h-screen isolate overflow-hidden">
+            <Header />
+            <main className="flex-1 overflow-auto bg-gray-50/50 relative">
+              {children}
+            </main>
+          </div>
+        </SimulationProvider>
       </body>
     </html>
   );
