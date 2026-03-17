@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 import { Sidebar } from "@/components/Sidebar";
 import { Header } from "@/components/Header";
+import { AIPanel } from "@/components/AIPanel";
 import { SimulationProvider } from "@/context/SimulationContext";
 
 export default function RootLayout({
@@ -39,6 +40,7 @@ export default function RootLayout({
               {children}
             </main>
           </div>
+          <AIPanel />
         </SimulationProvider>
       </body>
     </html>
